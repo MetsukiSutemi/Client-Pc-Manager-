@@ -64,11 +64,19 @@ def get_cpu_info():
     cpu_info = {
         'cpu_name': platform.processor(),
         'cpu_cores': psutil.cpu_count(logical=False),
-        'cpu_frequency': psutil.cpu_freq()
-        ,
-        'cpu_usage': psutil.cpu_percent(interval=0.1),
-        'cpu_usage_per_core': psutil.cpu_percent(interval=0.1, percpu=True)
+        'cpu_frequency': psutil.cpu_freq(),
+        'cpu_usage': psutil.cpu_percent(interval=0.1)
     }
     return cpu_info 
 
-print(get_cpu_info())
+#⁡⁢⁣⁡⁢⁣⁡⁢⁣⁢Получает информацию о памяти⁡
+def get_memory_info():
+    memory_info = {
+        'total_memory': psutil.virtual_memory().total,
+        'used_memory': psutil.virtual_memory().used,
+        'free_memory': psutil.virtual_memory().free,
+        'memory_usage': psutil.virtual_memory().percent
+    }
+    return memory_info
+
+
